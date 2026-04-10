@@ -1,0 +1,25 @@
+<root>
+    <BehaviorTree ID="SubTree_area3">
+        <sequence name="root_sequence">
+            <Nevigation/>
+            <Dicision/>
+            <switch2 variable="{have_kfs}" case_1="YES" case_2="NO">
+                <sequence name="put_kfs">
+                    <fallback>
+                        <sequence>
+                            <reverse>
+                                <IsHighEnough/>
+                            </reverse>
+                            <ClimbOnR1/>
+                            <PutKfs/>
+                        </sequence>
+                        <PutKfs/>
+                    </fallback>
+                </sequence>
+                <sequence name="take_kfs">
+                    <subtree ID="return_area2"/>
+                </sequence>
+            </switch2>
+        </sequence>
+    </BehaviorTree>
+</root>
