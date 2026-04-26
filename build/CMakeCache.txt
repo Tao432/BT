@@ -268,9 +268,6 @@ PKG_CONFIG_ARGN:STRING=
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
-//No help, variable specified on the command line.
-Python3_EXECUTABLE:UNINITIALIZED=/usr/bin/python3
-
 //Name of the computer/site where compile is being run
 SITE:STRING=tao
 
@@ -682,6 +679,7 @@ _OPENSSL_openssl_VERSION:INTERNAL=
 _Python3_Compiler_REASON_FAILURE:INTERNAL=
 //Development reason failure
 _Python3_Development_REASON_FAILURE:INTERNAL=
+//Path to a program.
 _Python3_EXECUTABLE:INTERNAL=/usr/bin/python3
 //Python3 Properties
 _Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;12;3;64;32;;cpython-312-x86_64-linux-gnu;abi3;/usr/lib/python3.12;/usr/lib/python3.12;/usr/local/lib/python3.12/dist-packages;/usr/local/lib/python3.12/dist-packages
