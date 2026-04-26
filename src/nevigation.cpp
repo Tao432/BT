@@ -49,7 +49,8 @@ public:
         }
 
         auto msg = geometry_msgs::msg::PoseStamped();
-        msg.header.stamp = node_->now();
+        //msg.header.stamp = node_->now();
+        msg.header.stamp = rclcpp::Time(0, 0, node_->get_clock()->get_clock_type());
         msg.header.frame_id = "world";
         msg.pose.position.x = target_x_;
         msg.pose.position.y = target_y_;
@@ -70,6 +71,7 @@ public:
 
         // 计算当前位置与目标的距离 (XY 平面)
         double dist = std::hypot(target_x_ - current_x_, target_y_ - current_y_);
+        std::cout<<dist<<std::endl;
 
         if (dist < 0.3) {
             RCLCPP_INFO(node_->get_logger(), "[%s] 成功到达目标点附近 (距离: %.2f)", name().c_str(), dist);
