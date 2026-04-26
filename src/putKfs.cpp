@@ -12,8 +12,11 @@ public:
     static BT::PortsList providedPorts() { return {}; }
 
     BT::NodeStatus tick() override {
-        std::cout << "[PutKfs] 放置 KFS..." << std::endl;
-        // TODO: 添加放置逻辑
-        return BT::NodeStatus::SUCCESS;
+        std::cout << "[PutKfs] 准备放置 KFS..." << std::endl;
+    
+    // TODO: 调用机械臂或释放机构的控制代码
+    
+    std::cout << "[PutKfs] 成功放置 KFS！" << std::endl;
+    return NodeStatus::SUCCESS;
     }
 };

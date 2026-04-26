@@ -1,25 +1,28 @@
-<root>
+<root BTCPP_format="4">
     <BehaviorTree ID="SubTree_area3">
-        <sequence name="root_sequence">
+        <Sequence name="root_sequence">
             <Nevigation/>
             <Dicision/>
-            <switch2 variable="{have_kfs}" case_1="YES" case_2="NO">
-                <sequence name="put_kfs">
-                    <fallback>
-                        <sequence>
-                            <reverse>
+            <Switch2 variable="{have_kfs}" case_1="YES" case_2="NO">
+                <Sequence name="put_kfs">
+                    <Fallback>
+                        <Sequence>
+                            <Inverter>
                                 <IsHighEnough/>
-                            </reverse>
+                            </Inverter>
                             <ClimbOnR1/>
                             <PutKfs/>
-                        </sequence>
+                        </Sequence>
+                        
                         <PutKfs/>
-                    </fallback>
-                </sequence>
-                <sequence name="take_kfs">
-                    <subtree ID="return_area2"/>
-                </sequence>
-            </switch2>
-        </sequence>
+                    </Fallback>
+                </Sequence>
+
+                <Sequence name="take_kfs">
+                    <Nevigation/>  <!--test-->
+                    <!-- <subtree ID="return_area2"/> -->
+                </Sequence>
+            </Switch2>
+        </Sequence>
     </BehaviorTree>
 </root>

@@ -16,13 +16,16 @@ public:
     }
 
     BT::NodeStatus tick() override {
-        std::cout << "[Dicision] 执行决策逻辑..." << std::endl;
-        
-        // TODO: 实际决策逻辑
-        
-        // 将结果写入黑板
-        setOutput("kfs_location", kfs_location);
-        
-        return BT::NodeStatus::SUCCESS;
+        std::cout << "\n[Dicision] 正在执行决策计算..." << std::endl;
+    
+    // 测试逻辑：假设经过视觉或传感器判断，我们有 kfs
+    std::string has_kfs = "YES"; 
+    
+    // 将结果写入黑板
+    setOutput("have_kfs", has_kfs);
+    
+    std::cout << "[Dicision] 决策完成，have_kfs = " << has_kfs << std::endl;
+    
+    return NodeStatus::SUCCESS;
     }
-}
+};
