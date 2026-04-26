@@ -1,7 +1,7 @@
 <root BTCPP_format="4">
     <BehaviorTree ID="SubTree_area3">
         <Sequence name="root_sequence">
-            <Nevigation/>
+            <Nevigation target_x="1.0" target_y="2.0" target_z="1.5"/>
             <Dicision/>
             <Switch2 variable="{have_kfs}" case_1="YES" case_2="NO">
                 <Sequence name="put_kfs">

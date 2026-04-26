@@ -38,17 +38,31 @@ int main(int argc, char **argv)
         std::cout << "--- 开始运行行为树 ---" << std::endl;
         rclcpp::WallRate loop_rate(10); // 10Hz
         while (rclcpp::ok()) {
-            std::cout << "--- Ticking ---" << std::endl;
-            auto status = tree.tickOnce();
+        //    std::cout << "--- Ticking ---" << std::endl;
+        //    auto status = tree.tickOnce();
     
           // 如果根节点返回 SUCCESS 或 FAILURE，树就执行完了
-            if (status != BT::NodeStatus::RUNNING) {
-            std::cout << "行为树运行结束，最终状态: " << status << std::endl;
+        //    if (status != BT::NodeStatus::RUNNING) {
+        //    std::cout << "行为树运行结束，最终状态: " << status << std::endl;
+        //    break; 
+        //    }
+
+        //    rclcpp::spin_some(ros_node);
+        //    loop_rate.sleep();
+        auto status = tree.tickOnce();
+    
+        if (status == BT::NodeStatus::SUCCESS) {
+            std::cout << ">>> 任务全部成功完成！" << std::endl;
             break; 
-            }
+        } 
+        else if (status == BT::NodeStatus::FAILURE) {
+            std::cout << ">>> 任务执行失败，3秒后重试..." << std::endl;
+            tree.haltTree(); // 关键：重置所有节点状态，准备下一次 tick
+            std::this_thread::sleep_for(std::chrono::seconds(3));
+        }
 
         rclcpp::spin_some(ros_node);
-        loop_rate.sleep();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
     } 
     catch (const std::exception& e) {
