@@ -14,9 +14,9 @@ public:
     BT::NodeStatus tick() override {
         std::cout << "[PutKfs] 准备放置 KFS..." << std::endl;
     
-    // TODO: 调用机械臂或释放机构的控制代码
+        // TODO: 调用机械臂或释放机构的控制代码
     
-    std::cout << "[PutKfs] 成功放置 KFS！" << std::endl;
-    return NodeStatus::SUCCESS;
+        std::cout << "[PutKfs] 成功放置 KFS！" << std::endl;
+        return NodeStatus::SUCCESS;
     }
 };

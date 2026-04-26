@@ -19,7 +19,7 @@ public:
     // 模拟动作耗时 (可选)
     // std::this_thread::sleep_for(std::chrono::seconds(1));
     
-    std::cout << "[ClimbOnR1] 爬升动作完成！" << std::endl;
-    return NodeStatus::SUCCESS;
+        std::cout << "[ClimbOnR1] 爬升动作完成！" << std::endl;
+        return NodeStatus::SUCCESS;
     }
 };

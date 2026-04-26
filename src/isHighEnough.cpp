@@ -17,16 +17,16 @@ public:
     BT::NodeStatus tick() override {
         std::cout << "[IsHighEnough] 正在检测机器人当前高度..." << std::endl;
     
-    // 测试逻辑：假设当前高度不够，返回 FAILURE
-    // 这样外层的 <reverse> 就会得到 SUCCESS，进而去执行 <ClimbOnR1>
-    bool high_enough = false;
+        // 测试逻辑：假设当前高度不够，返回 FAILURE
+        // 这样外层的 <reverse> 就会得到 SUCCESS，进而去执行 <ClimbOnR1>
+        bool high_enough = false;
 
-    if (high_enough) {
-        std::cout << "[IsHighEnough] 高度达标！" << std::endl;
-        return NodeStatus::SUCCESS;
-    } else {
-        std::cout << "[IsHighEnough] 高度不足！需要爬升。" << std::endl;
-        return NodeStatus::FAILURE;
-    }
+        if (high_enough) {
+            std::cout << "[IsHighEnough] 高度达标！" << std::endl;
+            return NodeStatus::SUCCESS;
+        } else {
+            std::cout << "[IsHighEnough] 高度不足！需要爬升。" << std::endl;
+            return NodeStatus::FAILURE;
+        }
     }
 };

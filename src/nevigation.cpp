@@ -50,6 +50,7 @@ public:
     }
 
     BT::NodeStatus onStart() override {
+        std::cout << "\033[32m[Executing]\033[0m -> " << this->name() << std::endl;
         if (!getInput("target_x", target_x_) || !getInput("target_y", target_y_) || !getInput("target_z", target_z_)) {
             return BT::NodeStatus::FAILURE;
         }
